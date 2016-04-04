@@ -23,4 +23,4 @@ class Weather:
 
     def get_fahrenheit(self):
         self.update_temperature()
-        return 9/5 * self.temperature + 32
+        return (9/5 * self.temperature) + 32
