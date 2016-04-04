@@ -19,7 +19,8 @@ Eventually this will either store observations in a database locally or use an e
     sudo python monitor_temp.py
 
 
-At the moment, this only works on Linux. Sudo is required in order to acess /dev/ldusb0
+At the moment, this only works on Linux.
+sudo is required in order to access /dev/ldusb0 (or you can set up a custom udev rule)
 
 
 

@@ -1,4 +1,3 @@
-import time
 import struct
 
 class Sensor:
@@ -16,13 +15,11 @@ class Sensor:
     def get_celcius(self):
         data = self._read_temp()
         # Average together the three temperature samples and apply transform: C = Average/126.74 - 5.4
-        cel = (data[2] + data[3] + data[4]) / 3 / 126.74 - 5.4
-        return cel
+        c = (data[2] + data[3] + data[4]) / 3 / 126.74 - 5.4
+        return c
 
     def get_fahrenheit(self):
-        cel = self.get_celcius()
-        fahr = (9.0 / 5.0 * cel) + 32.0
-        # Adjusted temperature factor determined empirically
-        fahr_adj = fahr * 1.16
-        return fahr_adj
+        c = self.get_celcius()
+        f = (9.0 / 5.0 * c) + 32.0
+        return f
 
