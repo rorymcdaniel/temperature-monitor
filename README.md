@@ -13,4 +13,13 @@ Eventually this will either store observations in a database locally or use an e
     sudo pip install requests
     sudo pip install python-dotenv
 
-At the moment, this only works on Linux. It does not work on OS X or Windows.
+
+### Usage
+    sudo python monitor_temp.py
+
+
+At the moment, this only works on Linux. Sudo is required in order to acess /dev/ldusb0
+
+
+
+
