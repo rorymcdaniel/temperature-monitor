@@ -12,6 +12,6 @@ load_dotenv(dotenv_path)
 
 sensor = Sensor()
 weather = Weather(os.environ.get("OPENWEATHERMAP_API_KEY"), os.environ.get("OPENWEATHERMAP_PLACE_ID"))
-print "Indoor Temperature: " + sensor.get_fahrenheit()
+print "Indoor Temperature: " + str(sensor.get_fahrenheit()) + "F"
 print "Outdoor Temperature: " + str(weather.get_fahrenheit()) + "F"
 
