@@ -11,8 +11,16 @@ class Weather:
         return r.json()
 
 
-    def get_temperature(self):
+    def update_temperature(self):
         weather = self.get_weather()
         c = weather['main']['temp'] - 273.15
         self.temperature = c
 
+    def get_celcius(self):
+        self.update_temperature()
+        return self.temperature
+
+
+    def get_fahrenheit(self):
+        self.update_temperature()
+        return 9/5 * self.temperature + 32

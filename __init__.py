@@ -1,2 +1,2 @@
-from Sensor import Sensor
-from Weather import Weather
+from sensor import Sensor
+from weather import Weather
