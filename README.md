@@ -10,7 +10,8 @@ Eventually this will either store observations in a database locally or use an e
 * python-dotenv
 
 
-    sudo pip install requests
+### Install dependencies
+    sudo pip install requests 
     sudo pip install python-dotenv
 
 
