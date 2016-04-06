@@ -1,0 +1,1 @@
+CREATE TABLE `temperatures`.`observations` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `location` VARCHAR(25) NOT NULL , `temperature` FLOAT NOT NULL , `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`), INDEX (`temperature`)) ENGINE = InnoDB;
