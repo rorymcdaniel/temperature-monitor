@@ -2,6 +2,7 @@ import os
 from os.path import join, dirname
 
 from dotenv import load_dotenv
+from twilio.rest import TwilioRestClient
 import MySQLdb
 
 
@@ -37,6 +38,14 @@ insert_data('outside', outside)
 
 print "Indoor Temperature: " + str(inside) + "F"
 print "Outdoor Temperature: " + str(outside) + "F"
+
+
+client = TwilioRestClient(os.environ.get('TWILIO_ACCOUNT_SID'), os.environ.get('TWILIO_AUTH_TOKEN'))
+
+message = client.messages.create(body="The temperature outside is lower than the temperature inside. Open the windows!",
+    to=os.environ.get("TO_PHONE_NUMBER"),    # Replace with your phone number
+    from_=os.environ.get("FROM_PHONE_NUMBER")) # Replace with your Twilio number
+print message.sid
 
 conn.close()
 
