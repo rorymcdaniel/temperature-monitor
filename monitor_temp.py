@@ -1,10 +1,10 @@
 import os
 from os.path import join, dirname
+import urllib
+import urllib2
 
 from dotenv import load_dotenv
-from twilio.rest import TwilioRestClient
 import MySQLdb
-
 
 from sensor import Sensor
 from weather import Weather
@@ -39,14 +39,13 @@ insert_data('outside', outside)
 print "Indoor Temperature: " + str(inside) + "F"
 print "Outdoor Temperature: " + str(outside) + "F"
 
+url = 'http://textbelt.com/text'
+values = {'number' : os.environ.get('TO_PHONE_NUMBER'),
+          'message' : 'The outdoor temperature is lower than the indoor temperature. Open the windows!' }
 
-client = TwilioRestClient(os.environ.get('TWILIO_ACCOUNT_SID'), os.environ.get('TWILIO_AUTH_TOKEN'))
-
-message = client.messages.create(body="The temperature outside is lower than the temperature inside. Open the windows!",
-    to=os.environ.get("TO_PHONE_NUMBER"),    # Replace with your phone number
-    from_=os.environ.get("FROM_PHONE_NUMBER")) # Replace with your Twilio number
-print message.sid
-
+data = urllib.urlencode(values)
+req = urllib2.Request(url, data)
+response = urllib2.urlopen(req)
 conn.close()
 
 
